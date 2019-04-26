@@ -1,8 +1,18 @@
-# Langlois-scIAV-analysis
-Files and descriptions of analysis performed for the Langlois lab in analyzing single-cycle IAV RNA-sequencing data.
+# Differential Experssion Analysis
+The code used here was used to analyze differential experssion in FACS sorted populations of infected lung cells.
 
-You can see two directories detailing the two methodologies that were used in the analysis.
+The procedure is as follows:
 
-1) Differential expression analysis
+0) Quality of alignments and duplication levels were observed throughout procedure with FastQC. 
 
-2) Influenza mutation burden analysis
+1) Remove PCR duplicates with BBMap (`dedupe_script.sh`).
+
+2) Align de-duplicated reads with Bowtie2.
+
+3) Quantify transcripts with SubReads (`count_features.sh`)
+
+4) Perform differential expression analysis and normalization with edgeR (`edgeR_from_FC.R`).
+
+5) Corral DE genes with R (`find_DE.R`).  
+
+6) Gene Ontology performed with DAVID online website. 
