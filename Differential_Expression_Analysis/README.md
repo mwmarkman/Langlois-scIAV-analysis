@@ -7,7 +7,7 @@ The procedure is as follows:
 
 1) Remove PCR duplicates with BBMap (`dedupe_script.sh`).
 
-2) Align de-duplicated reads with Bowtie2.
+2) Align de-duplicated reads with Bowtie2 (`alignment_for_DE.pbs`).
 
 3) Quantify transcripts with SubReads (`count_features.sh`)
 
