@@ -1,8 +1,8 @@
-# Langlois-scIAV-analysis
-Files and descriptions of analysis performed for the Langlois lab in analyzing single-cycle IAV RNA-sequencing data.
+# Influenza Mutation Bureden Analysis
+Steps and scripts used for analyzing mutation rate in scIAV RNA-sequencing. 
 
-You can see two directories detailing the two methodologies that were used in the analysis.
+The steps are as folows:
 
-1) Differential expression analysis
+	1) Differential expression analysis
 
-2) Influenza mutation burden analysis
+	2) Influenza mutation burden analysis

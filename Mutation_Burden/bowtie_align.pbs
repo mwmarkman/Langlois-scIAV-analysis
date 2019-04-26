@@ -1,0 +1,31 @@
+#!/bin/bash -l
+#PBS -l walltime=24:00:00,nodes=1:ppn=8,pmem=2gb
+#PBS -m abe
+#PBS -M markm014@umn.edu
+
+module load bowtie2
+module load samtools
+
+cd /home/langlois/markm014/Langlois_Project_009/data/fastq/deduped
+
+bowtie2-build mm10_infl.fa FULL_MM_IAV
+
+mkdir mouse_out
+
+for i in *.fastq; do
+        bowtie2 --local -U $i -L 22 -N 1 -x FULL_MM_IAV -S mouse_out/$i.SAM
+done
+
+cd mouse_out
+mkdir bam
+
+for i in *.SAM; do samtools view -S -b $i > bam/$i.bam; done
+
+cd bam
+mkdir sorted
+
+for i in *.bam; do samtools sort -o sorted/$i.sorted.bam $i; done
+
+cd sorted
+
+for i in *sorted.bam; do samtools index -b $i $i.bai; done
