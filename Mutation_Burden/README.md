@@ -9,7 +9,7 @@ The steps are as folows:
 
 2) Align de-duplicated reads with Bowtie2 (`alignment_for_DE.pbs`).
 
-3) Use Samtools mpileup to create quantifications of reads across flu genome (`name_of_file`).
+3) Use Samtools mpileup to create quantifications of reads across flu genome (`mpileup.pbs`).
 
 4) Python script to parse mpileup files and generate per base measures (`pileup_parser.py` and `wrapper_for_pileup_parser.sh`)
 

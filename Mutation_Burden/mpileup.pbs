@@ -1,0 +1,18 @@
+#!/bin/bash -l
+#PBS -l walltime=24:00:00,nodes=1:ppn=8,pmem=2gb
+#PBS -m abe
+#PBS -M markm014@umn.edu
+
+module load samtools
+
+cd /home/langlois/markm014/Langlois_Project_009/data/fastq/deduped/outsam/sorted
+
+cp /home/langlois/markm014/Langlois_Project_009/fa_ha_out_flu.fa /home/langlois/markm014/Langlois_Project_009/data/fastq/deduped/outsam/sorted
+
+samtools faidx fa_ha_out_flu.fa
+mkdir pileup_results
+
+for i in *fastq.SAM.sorted.sam; do
+	samtools index $i
+	samtools mpileup -f fa_ha_out_flu.fa -aa $i > pileup_results/$i.mpileup
+done
